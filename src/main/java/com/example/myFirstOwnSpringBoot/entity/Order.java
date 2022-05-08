@@ -6,26 +6,29 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Data
 public class Order {
 
-    @NotBlank(message = "Name is required")
-    private String name;
+    @NotBlank(message = "deliveryName is required")
+    private String deliveryName;
 
-    @NotBlank(message = "Street is required")
-    private String street;
+    @NotBlank(message = "deliveryStreet is required")
+    private String deliveryStreet;
 
-    @NotBlank(message = "City is required")
-    private String city;
+    @NotBlank(message = "deliveryCity is required")
+    private String deliveryCity;
 
-    @NotBlank(message = "State is required")
-    private String state;
+    @NotBlank(message = "deliveryState is required")
+    private String deliveryState;
 
-    @NotBlank(message = "Zip code is required")
-    private String zip;
+    @NotBlank(message = "deliveryZip code is required")
+    private String deliveryZip;
 
-    @CreditCardNumber(message = "Not a valid credit card number")
+    @NotBlank(message = "CreditCard is required")
     private String ccNumber;
 
     @Pattern(regexp = "^(0[1-9]|1[0-2])(/)([1-9]\\d)$", message = "Must be formatted MM/YY")
@@ -33,5 +36,15 @@ public class Order {
 
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
+
+    private long id;
+
+    private Date placedAt;
+
+    private List<Taco> tacos = new ArrayList<>();
+
+    public void addDesign(Taco design){
+        this.tacos.add(design);
+    }
 }
 
