@@ -3,6 +3,7 @@ package com.example.myFirstOwnSpringBoot.entity;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -11,6 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity
+@Table(name = "Taco_Order")
 public class Order {
 
     @NotBlank(message = "deliveryName is required")
@@ -37,14 +40,25 @@ public class Order {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private Date placedAt;
 
+    @ManyToMany(targetEntity = Taco.class)
+    @JoinTable(name="Taco_Order_Tacos",
+            joinColumns={@JoinColumn(name="tacoOrder")},
+            inverseJoinColumns={@JoinColumn(name="taco")})
     private List<Taco> tacos = new ArrayList<>();
 
     public void addDesign(Taco design){
         this.tacos.add(design);
+    }
+
+    @PrePersist
+    void placedAt(){
+        this.placedAt = new Date();
     }
 }
 

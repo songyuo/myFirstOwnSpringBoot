@@ -1,7 +1,19 @@
 package com.example.myFirstOwnSpringBoot.service;
 
 import com.example.myFirstOwnSpringBoot.entity.Order;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface OrderRepository {
-    Order save(Order order);
+import java.util.Date;
+import java.util.List;
+
+@Repository
+public interface OrderRepository extends CrudRepository<Order, Long> {
+    List<Order> findByDeliveryZip(String deliveryZip);
+
+    List<Order> readOrdersByDeliveryZipAndPlacedAtBetween(String delivery, Date startDate, Date endDate);
+
+//    @Query(" Order by where deliveryCity in 'Seattle'")
+//    List<Order> readOrdersByDeliveryCityInSeattle();
 }
