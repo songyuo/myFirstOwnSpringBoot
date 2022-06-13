@@ -53,4 +53,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
 
     }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests().antMatchers("/design", "/orders").access("hasRole('ROLE_USER')")
+                .antMatchers("/", "/**").access("permitAll").and().formLogin().loginPage("/login")
+                //.loginProcessingUrl("/authenticate").usernameParameter("user").passwordParameter("pwd")
+                .defaultSuccessUrl("/design", true)
+                .and().logout().logoutSuccessUrl("/login");
+    }
+
 }
