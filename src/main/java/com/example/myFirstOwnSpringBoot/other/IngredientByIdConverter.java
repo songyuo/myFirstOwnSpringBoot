@@ -3,7 +3,7 @@ package com.example.myFirstOwnSpringBoot.other;
 import java.util.Optional;
 
 import com.example.myFirstOwnSpringBoot.entity.Ingredient;
-import com.example.myFirstOwnSpringBoot.service.IngredientRepository;
+import com.example.myFirstOwnSpringBoot.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

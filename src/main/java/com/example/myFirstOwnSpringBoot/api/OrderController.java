@@ -1,7 +1,7 @@
 package com.example.myFirstOwnSpringBoot.api;
 
 import com.example.myFirstOwnSpringBoot.entity.Order;
-import com.example.myFirstOwnSpringBoot.service.OrderRepository;
+import com.example.myFirstOwnSpringBoot.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

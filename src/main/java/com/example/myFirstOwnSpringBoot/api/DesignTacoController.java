@@ -4,8 +4,8 @@ import com.example.myFirstOwnSpringBoot.entity.Ingredient;
 import com.example.myFirstOwnSpringBoot.entity.Ingredient.Type;
 import com.example.myFirstOwnSpringBoot.entity.Order;
 import com.example.myFirstOwnSpringBoot.entity.Taco;
-import com.example.myFirstOwnSpringBoot.service.IngredientRepository;
-import com.example.myFirstOwnSpringBoot.service.TacoRepository;
+import com.example.myFirstOwnSpringBoot.repository.IngredientRepository;
+import com.example.myFirstOwnSpringBoot.repository.TacoRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;

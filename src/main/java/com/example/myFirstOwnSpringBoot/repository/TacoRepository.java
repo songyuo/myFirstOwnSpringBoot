@@ -1,4 +1,4 @@
-package com.example.myFirstOwnSpringBoot.service;
+package com.example.myFirstOwnSpringBoot.repository;
 
 import com.example.myFirstOwnSpringBoot.entity.Taco;
 import org.springframework.data.repository.CrudRepository;

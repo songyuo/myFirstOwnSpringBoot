@@ -1,7 +1,6 @@
-package com.example.myFirstOwnSpringBoot.service;
+package com.example.myFirstOwnSpringBoot.repository;
 
 import com.example.myFirstOwnSpringBoot.entity.Order;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
