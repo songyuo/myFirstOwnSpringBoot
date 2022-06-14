@@ -52,6 +52,10 @@ public class Order {
             inverseJoinColumns={@JoinColumn(name="taco")})
     private List<Taco> tacos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "user_id") //不写也是user_id 注解的参考资料https://www.hxstrive.com/subject/open_jpa.htm?id=565
+    private User user;
+
     public void addDesign(Taco design){
         this.tacos.add(design);
     }

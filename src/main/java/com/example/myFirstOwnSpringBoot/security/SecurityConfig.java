@@ -60,7 +60,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/**").access("permitAll").and().formLogin().loginPage("/login")
                 //.loginProcessingUrl("/authenticate").usernameParameter("user").passwordParameter("pwd")
                 .defaultSuccessUrl("/design", true)
-                .and().logout().logoutSuccessUrl("/login");
+                .and().logout().logoutSuccessUrl("/login")
+                .and().headers().frameOptions().sameOrigin(); //这个书上没有但是示例代码有，不知道干什么的
     }
 
 }

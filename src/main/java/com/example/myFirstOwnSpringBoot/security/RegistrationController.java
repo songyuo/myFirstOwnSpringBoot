@@ -1,4 +1,4 @@
-package com.example.myFirstOwnSpringBoot.api;
+package com.example.myFirstOwnSpringBoot.security;
 
 import com.example.myFirstOwnSpringBoot.entity.RegistrationForm;
 import com.example.myFirstOwnSpringBoot.repository.UserRepository;
